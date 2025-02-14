@@ -58,7 +58,7 @@
             transform: scale(0.8);
             pointer-events: none;
         }
-        .content-container {
+        /* .content-container {
             display: none;
             flex-direction: column;
             align-items: center;
@@ -66,12 +66,33 @@
             opacity: 0;
             transition: opacity 1s ease;
             margin-top: 20px;
+            overflow-y: scroll;
         }
         .content-container.show {
             display: flex;
             opacity: 1;
             margin-top: 40px;
+        } */
+
+        .content-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 1s ease, margin-top 0.5s ease;
+            margin-top: -20px; /* Inicialmente más arriba */
+            visibility: hidden;
+            height: 0;
+            overflow-y: scroll;
         }
+        .content-container.show {
+            visibility: visible;
+            opacity: 1;
+            margin-top: 20px; /* Se mueve hacia abajo cuando aparece */
+            height: auto;
+        }
+
         .love-letter {
             margin-top: 20px;
             background: #ffccd5;
@@ -86,7 +107,7 @@
         }
         .slider {
             width: 80vw;
-            overflow: hidden;
+            /* overflow-x: hidden; */
             /* border: 2px solid #000; */
             position: relative;
             white-space: nowrap;
@@ -128,13 +149,32 @@
         }
     </style>
     <script>
+        // function showSlider() {
+        //     document.querySelector('.question-container').classList.add('hidden');
+        //     setTimeout(() => {
+        //         document.querySelector('.question-container').style.display = 'none';
+        //         document.querySelector('.content-container').classList.add('show');
+        //     }, 800);
+        // }
+
         function showSlider() {
-            document.querySelector('.question-container').classList.add('hidden');
-            setTimeout(() => {
-                document.querySelector('.question-container').style.display = 'none';
-                document.querySelector('.content-container').classList.add('show');
-            }, 800);
-        }
+    let questionContainer = document.querySelector('.question-container');
+    let contentContainer = document.querySelector('.content-container');
+    let slider = document.querySelector('.slider');
+
+    questionContainer.classList.add('hidden');
+    setTimeout(() => {
+        questionContainer.style.display = 'none';
+        contentContainer.style.display = 'flex'; // En lugar de solo agregar una clase
+        setTimeout(() => {
+            contentContainer.classList.add('show');
+            slider.style.display = 'block'; // Asegurar que el slider aparezca
+        }, 50);
+    }, 800);
+}
+
+
+
     </script>
 </head>
 <body>
