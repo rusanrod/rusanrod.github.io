@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>San Valentín 💖</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #fff0f6;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+        }
+        .question-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            background: #ffb3c6;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .gif-container img {
+            width: 200px;
+            border-radius: 10px;
+        }
+        .question {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff3366;
+            margin: 15px 0;
+        }
+        .question-container button {
+            background: #ff4d6d;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            border-radius: 25px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s;
+        }
+        .question-container button:hover {
+            background: #ff1e4d;
+            transform: scale(1.1);
+        }
+        .hidden {
+            opacity: 0;
+            transform: scale(0.8);
+            pointer-events: none;
+        }
+        .slider {
+            width: 80vw;
+            overflow: hidden;
+            border: 2px solid #000;
+            position: relative;
+            white-space: nowrap;
+            display: none;
+            transition: opacity 1s ease;
+        }
+        .slider.show {
+            display: block;
+            opacity: 1;
+        }
+        .slide-track {
+            display: flex;
+            width: max-content;
+            animation: scroll 10s linear infinite;
+        }
+        .slide {
+            width: 150px;
+            height: 250px;
+            margin: 5px;
+            flex-shrink: 0;
+        }
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        @keyframes scroll {
+            from {
+                transform: translateX(0);
+            }
+            to {
+                transform: translateX(-50%);
+            }
+        }
+    </style>
+    <script>
+        function showSlider() {
+            document.querySelector('.question-container').classList.add('hidden');
+            setTimeout(() => {
+                document.querySelector('.question-container').style.display = 'none';
+                document.querySelector('.slider').classList.add('show');
+            }, 800);
+        }
+    </script>
+</head>
+<body>
+    <div class="question-container">
+        <div class="gif-container">
+            <img src="vida-amor.gif" alt="">
+        </div>
+        <div class="question"><h1>¿Quieres ser mi San Valentín? 💖</h1></div>
+        <div>
+            <button onclick="showSlider()">¡Me encantaría!!</button>
+            <button onclick="showSlider()">¡Claro que sí!!</button>
+        </div>
+    </div>
+    <div class="slider">
+        <div class="slide-track">
+            <div class="slide"><img src="image1.jpeg"></div>
+            <div class="slide"><img src="image2.jpeg"></div>
+            <div class="slide"><img src="image3.jpeg"></div>
+            <div class="slide"><img src="image4.jpeg"></div>
+            <div class="slide"><img src="image5.jpeg"></div>
+            <div class="slide"><img src="image6.jpeg"></div>
+            <div class="slide"><img src="image7.jpeg"></div>
+            <div class="slide"><img src="image8.jpeg"></div>
+            <div class="slide"><img src="image9.jpeg"></div>
+            <div class="slide"><img src="image10.jpeg"></div>
+            <!-- Duplicamos las imágenes para el efecto infinito -->
+            <div class="slide"><img src="image1.jpeg"></div>
+            <div class="slide"><img src="image2.jpeg"></div>
+            <div class="slide"><img src="image3.jpeg"></div>
+            <div class="slide"><img src="image4.jpeg"></div>
+            <div class="slide"><img src="image5.jpeg"></div>
+            <div class="slide"><img src="image6.jpeg"></div>
+            <div class="slide"><img src="image7.jpeg"></div>
+            <div class="slide"><img src="image8.jpeg"></div>
+            <div class="slide"><img src="image9.jpeg"></div>
+            <div class="slide"><img src="image10.jpeg"></div>
+        </div>
+    </div>
+</body>
+</html>

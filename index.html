@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>San Valentín 💖</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap');
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #ffd2e4;
+            flex-direction: column;
+            font-family: 'Poppins', sans-serif;
+            /* padding: 50px; */
+        }
+        .question-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            background: #ffb3c6;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .gif-container img {
+            width: 200px;
+            border-radius: 10px;
+        }
+        .question {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff3366;
+            margin: 15px 0;
+        }
+        .question-container button {
+            background: #ff4d6d;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            border-radius: 25px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s;
+        }
+        .question-container button:hover {
+            background: #ff1e4d;
+            transform: scale(1.1);
+        }
+        .hidden {
+            opacity: 0;
+            transform: scale(0.8);
+            pointer-events: none;
+        }
+        .content-container {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 1s ease;
+            margin-top: 20px;
+        }
+        .content-container.show {
+            display: flex;
+            opacity: 1;
+            margin-top: 40px;
+        }
+        .love-letter {
+            margin-top: 20px;
+            background: #ffccd5;
+            padding: 60px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            max-width: 50%;
+            margin-bottom: 20px;
+        }
+        .love-letter h2 {
+            color: #ff3366;
+        }
+        .slider {
+            width: 80vw;
+            overflow: hidden;
+            /* border: 2px solid #000; */
+            position: relative;
+            white-space: nowrap;
+            /* display: none; */
+            transition: opacity 1s ease;
+        }
+        .slider.show {
+            display: block;
+            opacity: 1;
+        }
+        .slide-track {
+            display: flex;
+            width: max-content;
+            animation: scroll 22s linear infinite;
+        }
+        .slide {
+            width: 150px;
+            height: 250px;
+            margin: 20px;
+            flex-shrink: 0;
+        }
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+        @keyframes scroll {
+            from {
+                transform: translateX(0);
+            }
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        .despedida{
+            text-align: end;
+        }
+    </style>
+    <script>
+        function showSlider() {
+            document.querySelector('.question-container').classList.add('hidden');
+            setTimeout(() => {
+                document.querySelector('.question-container').style.display = 'none';
+                document.querySelector('.content-container').classList.add('show');
+            }, 800);
+        }
+    </script>
+</head>
+<body>
+    <div class="question-container">
+        <div class="gif-container">
+            <img src="vida-amor.gif" alt="">
+        </div>
+        <div class="question"><h1>¿Quieres ser mi San Valentín? 💖</h1></div>
+        <div>
+            <button onclick="showSlider()">¡Me encantaría!!</button>
+            <button onclick="showSlider()">¡Claro que sí!!</button>
+        </div>
+    </div>
+    <div class="content-container">
+        <div class="love-letter">
+            <h2>Mi amor 💌</h2>
+            <p>Me gustaría expresar todo lo que significas para mí y lo que siento por ti.</p>
+            <p>Desde el primer momento en que te conocí, supe que había algo único en ti. 
+                Nunca imaginé tener a mi lado a alguien que ame, respete y admire tanto como lo hago contigo. 
+                Realmente has llegado a cambiar mi vida para bien.
+            </p>
+            <p>Eres tan hermosa, detallista, graciosa, amable, linda, inteligente y capaz de hacer lo que sea. 
+                Estoy muy agradecido por estar con alguien que me comprenda, me ame y me cuide así como lo haces. 
+                Cada momento contigo es un regalo, cada risa compartida es un tesoro, y cada abrazo tuyo es el refugio más cálido que conozco.
+            </p>
+            <p>No hay palabras suficientes para describir cuánto te amo, Ximena. 
+                Nunca me voy a cansar de decírtelo ni de demostrarlo cada día. 
+                Eres mi persona especial, mi hogar y mi felicidad.</p>
+            <p class="despedida">Siempre tuyo,</p>
+            <p class="despedida">Rubén.</p>
+            
+        </div>
+        <h3>Una breve colección de momentos que hemos compartido juntos... Y los que nos faltan.</h3>
+        <div class="slider">
+            <div class="slide-track">
+                <div class="slide"><img src="image1.jpeg"></div>
+                <div class="slide"><img src="image2.jpeg"></div>
+                <div class="slide"><img src="image3.jpeg"></div>
+                <div class="slide"><img src="image4.jpeg"></div>
+                <div class="slide"><img src="image5.jpeg"></div>
+                <div class="slide"><img src="image6.jpeg"></div>
+                <div class="slide"><img src="image7.jpeg"></div>
+                <div class="slide"><img src="image8.jpeg"></div>
+                <div class="slide"><img src="image9.jpeg"></div>
+                <div class="slide"><img src="image10.jpeg"></div>
+                <div class="slide"><img src="image11.jpeg"></div>
+                <div class="slide"><img src="image12.jpeg"></div>
+                <div class="slide"><img src="image13.jpeg"></div>
+                <div class="slide"><img src="image14.jpeg"></div>
+                <div class="slide"><img src="image1.jpeg"></div>
+                <div class="slide"><img src="image2.jpeg"></div>
+                <div class="slide"><img src="image3.jpeg"></div>
+                <div class="slide"><img src="image4.jpeg"></div>
+                <div class="slide"><img src="image5.jpeg"></div>
+                <div class="slide"><img src="image6.jpeg"></div>
+                <div class="slide"><img src="image7.jpeg"></div>
+                <div class="slide"><img src="image8.jpeg"></div>
+                <div class="slide"><img src="image9.jpeg"></div>
+                <div class="slide"><img src="image10.jpeg"></div>
+                <div class="slide"><img src="image11.jpeg"></div>
+                <div class="slide"><img src="image12.jpeg"></div>
+                <div class="slide"><img src="image13.jpeg"></div>
+                <div class="slide"><img src="image14.jpeg"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
